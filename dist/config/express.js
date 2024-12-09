@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_middleware_1 = __importDefault(require("../app/middleware/cors.middleware"));
-const logger_1 = __importDefault(require("./logger"));
+// import Logger from "./logger"
 // import {rootUrl} from "../app/routes/base.routes";
 const rootUrl = "/api/v1";
 exports.default = () => {
@@ -17,12 +17,12 @@ exports.default = () => {
     app.use(body_parser_1.default.raw({ type: 'text/plain' }));
     app.use(body_parser_1.default.raw({ type: ['image/*'], limit: '5mb' }));
     // Debug
-    app.use((req, res, next) => {
-        if (req.path !== '/') {
-            logger_1.default.http(`##### ${req.method} ${req.path} #####`);
-        }
-        next();
-    });
+    // app.use((req, res, next) => {
+    //     if(req.path !== '/'){
+    //         // Logger.http(`##### ${req.method} ${req.path} #####`);
+    //     }
+    //     next();
+    // });
     app.get('/heartbeat', (req, res) => {
         res.send({ 'message': 'I\'m alive!' });
     });
