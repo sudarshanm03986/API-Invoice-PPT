@@ -1,7 +1,7 @@
 import express from "express"
 import bodyParser from "body-parser"
 import allowCrossOriginRequestsMiddleware from "../app/middleware/cors.middleware"
-import Logger from "./logger"
+// import Logger from "./logger"
 // import {rootUrl} from "../app/routes/base.routes";
 
 const rootUrl = "/api/v1";
@@ -16,12 +16,12 @@ export default () => {
     app.use(bodyParser.raw({type: ['image/*'], limit: '5mb'}));
 
     // Debug
-    app.use((req, res, next) => {
-        if(req.path !== '/'){
-            Logger.http(`##### ${req.method} ${req.path} #####`);
-        }
-        next();
-    });
+    // app.use((req, res, next) => {
+    //     if(req.path !== '/'){
+    //         // Logger.http(`##### ${req.method} ${req.path} #####`);
+    //     }
+    //     next();
+    // });
 
     app.get('/heartbeat', (req, res) => {
         res.send({'message': 'I\'m alive!'});
