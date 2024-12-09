@@ -1,0 +1,1 @@
+{"version":3,"file":"invoiceMail.routes.js","sourceRoot":"","sources":["../../../src/app/router/invoiceMail.routes.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;AACA,4EAA8D;AAE9D,MAAM,CAAC,OAAO,GAAG,CAAC,GAAY,EAAE,EAAE;IAE9B,uCAAuC;IACvC,GAAG,CAAC,KAAK,CAAC,wBAAwB,CAAC;SAClC,IAAI,CAAC,IAAI,CAAC,WAAW,CAAC,CAAC;AAC5B,CAAC,CAAA"}

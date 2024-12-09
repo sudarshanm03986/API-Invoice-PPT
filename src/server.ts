@@ -2,7 +2,7 @@
 import express from './config/express'
 // Remove the MySQL connection import if you don't want to use it
 // import { connect } from './config/db';
-// import Logger from './config/logger'
+import Logger from './config/logger'
 import dotenv from 'dotenv';
 
 const app = express();
@@ -18,7 +18,7 @@ dotenv.config();
 
 
 app.listen(port, () => {
-    // Logger.info('Listening on port: ' + port)
+    Logger.info('Listening on port: http://localhost:' + port)
 });
 
 module.exports = app;

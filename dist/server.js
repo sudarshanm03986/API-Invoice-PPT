@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("./config/express"));
 // Remove the MySQL connection import if you don't want to use it
 // import { connect } from './config/db';
-// import Logger from './config/logger'
+const logger_1 = __importDefault(require("./config/logger"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 4941;
@@ -14,7 +14,7 @@ const port = process.env.PORT || 4941;
 // Since you're not connecting to a database, you don't need that try-catch block
 dotenv_1.default.config();
 app.listen(port, () => {
-    // Logger.info('Listening on port: ' + port)
+    logger_1.default.info('Listening on port: http://localhost:' + port);
 });
 module.exports = app;
 // async function main() {
