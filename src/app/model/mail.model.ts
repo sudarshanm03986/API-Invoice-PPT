@@ -14,14 +14,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const send = async (to: string, subject: string, htmlContent: string): Promise<void> => {
+const send = async (to: string, htmlContent: string): Promise<void> => {
   try {
     Logger.http("Model started, sending from: " + process.env.EMAIL);
 
     const info = await transporter.sendMail({
       from: process.env.INVOICE_EMAIL,  // Alias email
       to,                               // Recipient's email
-      subject,                          // Email subject
+      subject : "Your invoice from Pixel Pals",                          // Email subject
       html: htmlContent,                // HTML content
     });
 
