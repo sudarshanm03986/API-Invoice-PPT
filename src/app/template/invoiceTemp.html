@@ -64,7 +64,7 @@
                     {{#each tasks}}
                     <tr>
                       <td style="padding: 10px; font-size: 14px; color: #333333;">{{description}}</td>
-                      <td align="right" style="padding: 10px; font-size: 14px; color: #333333;">{{cost}}</td>
+                      <td align="right" style="padding: 10px; font-size: 14px; color: #333333;">${{cost}}</td>
                     </tr>
                     {{/each}}
                   </tbody>
@@ -73,7 +73,7 @@
                 <table width="100%" cellpadding="10" cellspacing="0" style="margin: 20px 0; border-collapse: collapse; background-color: #ffffff;">
                   <tr>
                     <td align="right" style="padding: 10px; font-size: 16px; font-weight: bold; color: #333333;">Total:</td>
-                    <td align="right" style="padding: 10px; font-size: 16px; font-weight: bold; color: #333333;">{{totalCost}}</td>
+                    <td align="right" style="padding: 10px; font-size: 16px; font-weight: bold; color: #333333;">${{totalCost}}</td>
                   </tr>
                     </table>
 

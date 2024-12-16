@@ -6,9 +6,17 @@ import juice from 'juice';
 import template from '../template/invoiceTemp';
 // import { fs } from 'mz';
 
+interface OutTasks  {
+  description : string;
+  cost : string;
+}
+
 const mailInvoice = async (req: Request, res: Response): Promise<void> => {
   const { client_email, client_fname, client_lname, client_phone, client_address, client_postcode, client_city , client_tasks, client_total } = req.body;
   // const template = fs.readFileSync('src/app/template/invoiceTemp.html', 'utf-8').toString();
+
+  const tasks : OutTasks[] = client_tasks.map((task : {description:string, cost:number}) => ({ description: task.description , cost: task.cost.toLocaleString("en-US", {style:"currency", currency:"USD"})}));
+
 
   try {
     // Compile the Handlebars template
@@ -22,8 +30,8 @@ const mailInvoice = async (req: Request, res: Response): Promise<void> => {
       client_address,
       client_postcode,
       client_city,
-      tasks: client_tasks,
-      totalCost:client_total
+       tasks,
+      totalCost: client_total.toLocaleString("en-US", {style:"currency", currency:"USD"})
     });
 
     Logger.info("Sending email...");

@@ -41,10 +41,10 @@ const logger_1 = __importDefault(require("../../config/logger"));
 const handlebars_1 = __importDefault(require("handlebars"));
 const juice_1 = __importDefault(require("juice"));
 const invoiceTemp_1 = __importDefault(require("../template/invoiceTemp"));
-// import { fs } from 'mz';
 const mailInvoice = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { client_email, client_fname, client_lname, client_phone, client_address, client_postcode, client_city, client_tasks, client_total } = req.body;
     // const template = fs.readFileSync('src/app/template/invoiceTemp.html', 'utf-8').toString();
+    const tasks = client_tasks.map((task) => ({ description: task.description, cost: task.cost.toLocaleString("en-US", { style: "currency", currency: "USD" }) }));
     try {
         // Compile the Handlebars template
         const compiledTemplate = handlebars_1.default.compile(invoiceTemp_1.default);
@@ -56,8 +56,8 @@ const mailInvoice = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             client_address,
             client_postcode,
             client_city,
-            tasks: client_tasks,
-            totalCost: client_total
+            tasks,
+            totalCost: client_total.toLocaleString("en-US", { style: "currency", currency: "USD" })
         });
         logger_1.default.info("Sending email...");
         // Inline CSS
