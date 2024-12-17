@@ -32,10 +32,9 @@ export default () => {
     });
 
     // ROUTES
-    // require('../app/routes/backdoor.routes')(app);
-    // require('../app/routes/user.routes')(app);
-    // require('../app/routes/petition.routes')(app);
+
     require('../app/router/invoiceMail.routes') (app)
+    require('../app/router/admin.routes') (app)
 
     return app;
 }
