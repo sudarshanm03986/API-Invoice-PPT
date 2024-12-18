@@ -1,6 +1,6 @@
 import express from "express"
 import bodyParser from "body-parser"
-import allowCrossOriginRequestsMiddleware from "../app/middleware/cors.middleware"
+// import allowCrossOriginRequestsMiddleware from "../app/middleware/cors.middleware"
 // import Logger from "./logger"
 // import {rootUrl} from "../app/routes/base.routes";
 
@@ -10,7 +10,12 @@ export default () => {
     const app = express();
 
     // Middleware
-    app.use(allowCrossOriginRequestsMiddleware);
+    app.use( (req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Authorization');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
+        next();
+    });
     app.use(bodyParser.json());
     app.use(bodyParser.raw({type: 'text/plain'}));
     app.use(bodyParser.raw({type: ['image/*'], limit: '5mb'}));
