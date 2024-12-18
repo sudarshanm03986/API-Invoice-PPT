@@ -22,7 +22,7 @@ const authenticate = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         return;
     }
     try {
-        jsonwebtoken_1.default.verify(token, process.env.MCNA_JWT_TOKEN, (err, data) => {
+        jsonwebtoken_1.default.verify(token, process.env.JWT_TOKEN, (err, data) => {
             if (err) {
                 res.statusMessage = "Token Is not Valid";
                 res.status(403).json();

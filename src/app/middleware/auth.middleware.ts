@@ -13,7 +13,7 @@ const authenticate = async (req: Request, res: Response, next:NextFunction): Pro
 
     try {
 
-        jwt.verify(token,  process.env.MCNA_JWT_TOKEN , (err, data) => {
+        jwt.verify(token,  process.env.JWT_TOKEN , (err, data) => {
 
             if (err) {
                 res.statusMessage = "Token Is not Valid";
