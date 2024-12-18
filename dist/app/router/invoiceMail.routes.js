@@ -24,9 +24,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mail = __importStar(require("../controllers/invoiceMail.controller"));
+const auth = __importStar(require("../middleware/auth.middleware"));
 module.exports = (app) => {
     // ===  mail client their invoice =====
     app.route('/api/mail/emailInvoice')
-        .post(mail.mailInvoice);
+        .post(auth.authenticate, mail.mailInvoice);
 };
 //# sourceMappingURL=invoiceMail.routes.js.map
