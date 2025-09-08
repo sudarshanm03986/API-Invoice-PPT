@@ -82,9 +82,9 @@ const template = ` <!DOCTYPE html>
 
                           </td>
                       </table>
-
-                      <p style="font-size: 0.9rem;"><strong>Account Number:</strong> 03 0835 0029573 000</p>
-                      <p style="font-size: 0.9rem;"><strong>Reference Id:</strong> {{client_lname}}{{client_phone}}</p>
+                      
+                        <p style="font-size: 0.9rem;"><strong>Account Number:</strong> 03 0835 0029573 000</p>
+                      <p style="font-size: 0.9rem;"><strong>Account Name:</strong> Pixel Pals</p>
 
                     </td>
                   </tr>
