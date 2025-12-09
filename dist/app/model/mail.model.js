@@ -26,14 +26,19 @@ const transporter = nodemailer_1.default.createTransport({
         pass: process.env.KEY, // Your app-specific password
     },
 });
-const send = (to, htmlContent) => __awaiter(void 0, void 0, void 0, function* () {
+const send = (to, htmlContent, doc) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         logger_1.default.http("Model started, sending from: " + process.env.EMAIL);
         const info = yield transporter.sendMail({
             from: process.env.INVOICE_EMAIL,
             to,
             subject: "Your invoice from Pixel Pals",
-            html: htmlContent, // HTML content
+            html: htmlContent,
+            attachments: [{
+                    filename: 'invoice.pdf',
+                    content: doc,
+                    contentType: 'application/pdf'
+                }]
         });
         logger_1.default.http("Email sent successfully");
         logger_1.default.info(info); // Log the result from sending the email

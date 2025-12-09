@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const send = async (to: string, htmlContent: string): Promise<void> => {
+const send = async (to: string, htmlContent: string, doc: Buffer): Promise<void> => {
   try {
     Logger.http("Model started, sending from: " + process.env.EMAIL);
 
@@ -23,6 +23,12 @@ const send = async (to: string, htmlContent: string): Promise<void> => {
       to,                               // Recipient's email
       subject : "Your invoice from Pixel Pals",                          // Email subject
       html: htmlContent,                // HTML content
+      attachments: [{
+        filename: 'invoice.pdf',
+        content: doc,
+        contentType: 'application/pdf'
+      }]
+
     });
 
     Logger.http("Email sent successfully");
