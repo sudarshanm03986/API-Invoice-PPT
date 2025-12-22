@@ -21,6 +21,7 @@ const send = async (to: string, htmlContent: string, doc: Buffer): Promise<void>
     const info = await transporter.sendMail({
       from: process.env.INVOICE_EMAIL,  // Alias email
       to,                               // Recipient's email
+      cc : "lance@pixelpals.co.nz",
       subject : "Your invoice from Pixel Pals",                          // Email subject
       html: htmlContent,                // HTML content
       attachments: [{
