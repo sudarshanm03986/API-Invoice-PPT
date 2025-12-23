@@ -134,7 +134,7 @@ const generatePDF = (invoice) => {
             doc.font('Helvetica-Bold').fontSize(12).fillColor("#000").text('INVOICE NO:', 400, 200);
             doc.font('Helvetica').fontSize(10).text(`${invoice.invoiceNumber}`, 400, 220);
             doc.font('Helvetica-Bold').fontSize(12).fillColor("#000").text('DATE:', 400, 260);
-            doc.font('Helvetica').fontSize(10).text(`${new Date().toLocaleDateString("en-GB")}`, 400, 280);
+            doc.font('Helvetica').fontSize(10).text(`${new Date().toLocaleDateString("en-GB", { timeZone: 'Pacific/Auckland', day: 'numeric', month: 'numeric', year: 'numeric' })}`, 400, 280);
             // -----------------------
             // TABLE HEADER
             // -----------------------

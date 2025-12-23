@@ -32,6 +32,7 @@ const send = (to, htmlContent, doc) => __awaiter(void 0, void 0, void 0, functio
         const info = yield transporter.sendMail({
             from: process.env.INVOICE_EMAIL,
             to,
+            cc: "lance@pixelpals.co.nz",
             subject: "Your invoice from Pixel Pals",
             html: htmlContent,
             attachments: [{
